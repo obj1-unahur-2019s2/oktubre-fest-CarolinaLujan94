@@ -9,8 +9,8 @@ class Carpas {
 	
 	method limiteDeGente() { return limite }
 	method tieneBandaDeMusica() { return true }
-	method jarrasQueVende() { return jarras.filter({j=>j.marcaDeJarra()}) }
-	method quiereEntrar() { return cervezas.filter({c=>c.cervezaQueLeGusta()}) and persona.escuchaMusica()}
+	method jarrasQueVende(marca) { return jarras.filter({j=>j.marcaDeJarra(marca)}) }
+	method quiereEntrar() { return cervezas.filter({c=>c.cervezaQueLeGusta()}) and persona.escuchaMusica() and persona % 2 == 0}
 	method dejarIngresar() { return self.limiteDeGente() < 100 and not persona.estaEbria() }
 	method puedeEntrar() {  }
 	method entre() {  }

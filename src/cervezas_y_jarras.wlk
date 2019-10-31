@@ -15,8 +15,13 @@ class CervezaNegra {
 	
 	method gramoPorLitro() { return gramos }
 	method paisDondeSeFabrico() { return pais }
-	method graduacion() { return graduacion.between(graduacion.min(), self.gramoPorLitro() * 2) }
+	method graduacion() { return self.gramoPorLitro() * 2).min  }
 }
+
+object enteRegulador{
+	method graduacionReglamentaria() { return 2 }
+}
+
 
 class CervezaRoja {
 	var property gramos
@@ -25,7 +30,7 @@ class CervezaRoja {
 	
 	method gramoPorLitro() { return gramos }
 	method paisDondeSeFabrico() { return pais }
-	method graduacion() { return graduacion.CervezaNegra() * 2 }
+	method graduacion() { return graduacionReglamentaria.enteRegulador() * 1.25 }
 }
 
 class Jarras {
@@ -34,6 +39,7 @@ class Jarras {
 	var property pais
 	
 	method capacidad() { return litros  }
-	method marcaDeJarra() { return marcas }
+	method marcaDeJarra(marca) { return marcas }
 	method paisDeJarra() { return pais }
+	method contenidoDeAlcohol() { capacidad * marcas.graduacion() }
 }
