@@ -30,8 +30,10 @@ class CervezaRoja {
 
 class Jarras {
 	var property litros
-	var marcas
+	var property marcas
+	var property pais
 	
 	method capacidad() { return litros  }
 	method marcaDeJarra() { return marcas }
+	method paisDeJarra() { return pais }
 }
